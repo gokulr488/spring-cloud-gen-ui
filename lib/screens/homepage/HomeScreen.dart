@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:springcloudgenui/commons/UiConstants.dart';
 import 'package:springcloudgenui/components/BaseScreen.dart';
+import 'package:springcloudgenui/components/HorLine.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String id = 'HomeScreen';
@@ -8,7 +9,21 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseScreen(
       child: Column(
-        children: [_Header()],
+        children: [
+          _Header(),
+          Text('Base Project Info',
+              style: TextStyle(
+                  fontSize: 23,
+                  color: Colors.green,
+                  fontWeight: FontWeight.bold)),
+          HorLine(),
+          Text('Child Projects Info',
+              style: TextStyle(
+                  fontSize: 23,
+                  color: Colors.green,
+                  fontWeight: FontWeight.bold)),
+          HorLine(),
+        ],
       ),
     );
   }
@@ -26,12 +41,12 @@ class _Header extends StatelessWidget {
         ),
         Text('Spring ',
             style: TextStyle(
-                fontSize: 25,
+                fontSize: 28,
                 color: Colors.green,
                 fontWeight: FontWeight.bold)),
         Text('Cloud Generator',
             style: TextStyle(
-                fontSize: 25, color: kWhite80, fontWeight: FontWeight.bold))
+                fontSize: 30, color: kWhite80, fontWeight: FontWeight.bold))
       ],
     );
   }
