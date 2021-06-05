@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:springcloudgenui/HomeScreen.dart';
+import 'package:springcloudgenui/screens/HomeScreen.dart';
 
 void main() {
   runApp(SpringCloudGen());
