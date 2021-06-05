@@ -14,7 +14,7 @@ class BaseProjectReq {
     required this.projectName,
   });
 
-  String basePackageName;
+  late String basePackageName;
   String configServerPort;
   String discoveryGatewayPort;
   bool overWriteExistingFiles;

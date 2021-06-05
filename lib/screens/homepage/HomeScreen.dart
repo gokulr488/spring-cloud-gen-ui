@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:springcloudgenui/commons/UiConstants.dart';
 import 'package:springcloudgenui/components/BaseScreen.dart';
 import 'package:springcloudgenui/components/HorLine.dart';
+import 'package:springcloudgenui/screens/homepage/BaseProjectForm.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String id = 'HomeScreen';
@@ -17,6 +18,7 @@ class HomeScreen extends StatelessWidget {
                   color: Colors.green,
                   fontWeight: FontWeight.bold)),
           HorLine(),
+          BaseProjectForm(),
           Text('Child Projects Info',
               style: TextStyle(
                   fontSize: 23,
