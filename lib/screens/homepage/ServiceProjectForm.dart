@@ -20,7 +20,7 @@ class _ServiceProjectFormState extends State<ServiceProjectForm> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 350,
+      height: 200,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [

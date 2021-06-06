@@ -42,7 +42,7 @@ class _ServiceProjects extends StatefulWidget {
 }
 
 class __ServiceProjectsState extends State<_ServiceProjects> {
-  final List<ServiceProjectForm> serviceProjects = [ServiceProjectForm()];
+  final List<Widget> serviceProjects = [ServiceProjectForm(), HorLine()];
 
   @override
   Widget build(BuildContext context) {
