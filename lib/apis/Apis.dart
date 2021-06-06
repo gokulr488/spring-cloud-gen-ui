@@ -11,7 +11,7 @@ class Apis {
   CallContext callContext = CallContext();
 
   Future<CallContext> generateBaseProject(BaseProjectReq req) async {
-    String url = baseUrl + '/getAllContracts';
+    String url = baseUrl + '/generate/baseProject';
     print('Base Project Req: $url');
     Uri uri = Uri.parse(url);
     try {
@@ -30,7 +30,7 @@ class Apis {
   }
 
   Future<CallContext> generateServiceProject(ServiceProjectReq req) async {
-    String url = baseUrl + '/getAllContracts';
+    String url = baseUrl + '/generate/serviceProject';
     print('Service Project Req: $url');
     Uri uri = Uri.parse(url);
     try {

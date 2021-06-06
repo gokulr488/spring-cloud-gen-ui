@@ -12,14 +12,14 @@ class HomeScreen extends StatelessWidget {
       child: Column(
         children: [
           _Header(),
-          Text('Base Project Info',
+          Text('Base Project',
               style: TextStyle(
                   fontSize: 23,
                   color: Colors.green,
                   fontWeight: FontWeight.bold)),
           HorLine(),
           BaseProjectForm(),
-          Text('Child Projects Info',
+          Text('Child Projects',
               style: TextStyle(
                   fontSize: 23,
                   color: Colors.green,
@@ -41,7 +41,7 @@ class _Header extends StatelessWidget {
           size: 50,
           color: Colors.green,
         ),
-        Text('Spring ',
+        Text('spring ',
             style: TextStyle(
                 fontSize: 28,
                 color: Colors.green,

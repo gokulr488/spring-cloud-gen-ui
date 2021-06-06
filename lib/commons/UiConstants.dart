@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 const Color kBackgroundColor = Color(0xFF121212);
-const Color kHighlightColour = Color(0xFF00701a);
+const Color kHighlightColour = Colors.green;
 const Color kRedColor = Color(0xFF7f0000);
 const Color kBlueColor = Color(0xFF0d47a1);
 const Color kAlertColor = Color(0x801b1b1b);
@@ -16,15 +16,13 @@ const TextStyle kScreenHeadingStyle =
 
 const kTextFieldDecoration = InputDecoration(
     labelStyle: TextStyle(fontSize: 16),
-    contentPadding: EdgeInsets.symmetric(horizontal: 20.0),
-    border: OutlineInputBorder(
-        borderRadius: BorderRadius.all(Radius.circular(32.0))),
+    contentPadding: EdgeInsets.all(10),
     enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: kHighlightColour, width: 1.0),
-        borderRadius: BorderRadius.all(Radius.circular(32.0))),
+        borderSide: BorderSide(color: kHighlightColour),
+        borderRadius: BorderRadius.all(Radius.circular(10))),
     focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Color(0xFFc4001d), width: 2.0),
-        borderRadius: BorderRadius.all(Radius.circular(32.0))));
+        borderSide: BorderSide(color: Color(0xFFc4001d), width: 2),
+        borderRadius: BorderRadius.all(Radius.circular(25))));
 
 const Map<int, Color> kCardOverlay = {
   1: Color(0x0DFFFFFF),
