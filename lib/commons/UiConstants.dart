@@ -21,7 +21,7 @@ const kTextFieldDecoration = InputDecoration(
         borderSide: BorderSide(color: kHighlightColour),
         borderRadius: BorderRadius.all(Radius.circular(10))),
     focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Color(0xFFc4001d), width: 2),
+        borderSide: BorderSide(color: kBlueColor, width: 2),
         borderRadius: BorderRadius.all(Radius.circular(25))));
 
 const Map<int, Color> kCardOverlay = {

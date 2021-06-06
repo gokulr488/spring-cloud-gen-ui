@@ -12,21 +12,19 @@ class Apis {
 
   Future<CallContext> generateBaseProject(BaseProjectReq req) async {
     String url = baseUrl + '/generate/baseProject';
-    print('Base Project Req: $url');
+    print('Base Project URL: $url BODY: ${req.toRawJson()}');
     Uri uri = Uri.parse(url);
     try {
       final res = await http.post(uri, headers: header, body: req.toRawJson());
       if (res.statusCode == 200) {
         callContext.setSuccess(res.body);
-        return callContext;
       } else {
         callContext.setError(res.reasonPhrase);
-        return callContext;
       }
     } catch (e) {
       callContext.setError(e.toString());
-      return callContext;
     }
+    return callContext;
   }
 
   Future<CallContext> generateServiceProject(ServiceProjectReq req) async {

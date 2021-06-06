@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:springcloudgenui/apis/Apis.dart';
 import 'package:springcloudgenui/apis/BaseProjectReq.dart';
+import 'package:springcloudgenui/apis/CallContext.dart';
 import 'package:springcloudgenui/commons/UiConstants.dart';
+import 'package:springcloudgenui/components/Alerts.dart';
 import 'package:springcloudgenui/components/CheckBoxWidget.dart';
 import 'package:springcloudgenui/components/FormFieldWidget.dart';
 import 'package:springcloudgenui/components/RoundedButton.dart';
@@ -24,9 +26,6 @@ class _BaseProjectFormState extends State<BaseProjectForm> {
   final TextEditingController folderCtrl =
       TextEditingController(text: 'C:\\Users\\username\\eclipse-workspace');
 
-  final TextEditingController projectNameCtrl =
-      TextEditingController(text: 'SpringCloudProject');
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -37,10 +36,6 @@ class _BaseProjectFormState extends State<BaseProjectForm> {
           Expanded(
             child: Column(
               children: [
-                FormFieldWidget(
-                  fieldName: 'Project Name',
-                  controller: projectNameCtrl,
-                ),
                 FormFieldWidget(
                   fieldName: 'Package Name',
                   controller: packageCtrl,
@@ -94,9 +89,7 @@ class _BaseProjectFormState extends State<BaseProjectForm> {
                 ),
                 Spacer(),
                 RoundedButton(
-                  onPressed: () {
-                    onGeneratePressed();
-                  },
+                  onPressed: onGeneratePressed,
                   width: 150,
                   title: 'Generate',
                   colour: kHighlightColour,
@@ -109,15 +102,18 @@ class _BaseProjectFormState extends State<BaseProjectForm> {
     );
   }
 
-  onGeneratePressed() async {
+  void onGeneratePressed() async {
     debugPrint('Generating Base Project');
     BaseProjectReq req = BaseProjectReq(
-      basePackageName: packageCtrl.text,
-      configServerPort: configPortCtrl.text,
-      discoveryGatewayPort: discoveryPortCtrl.text,
-      projectFolderPath: folderCtrl.text,
-      projectName: projectNameCtrl.text,
-    );
-    Apis().generateBaseProject(req);
+        basePackageName: packageCtrl.text,
+        configServerPort: configPortCtrl.text,
+        discoveryGatewayPort: discoveryPortCtrl.text,
+        projectFolderPath: folderCtrl.text);
+    CallContext callContext = await Apis().generateBaseProject(req);
+    if (callContext.isError) {
+      showErrorAlert(context, 'Unable to Generate');
+    } else {
+      showSilentAlerts('Generated Succesfully');
+    }
   }
 }

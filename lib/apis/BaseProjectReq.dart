@@ -11,7 +11,6 @@ class BaseProjectReq {
     required this.discoveryGatewayPort,
     this.overWriteExistingFiles = false,
     required this.projectFolderPath,
-    required this.projectName,
   });
 
   late String basePackageName;
@@ -19,7 +18,6 @@ class BaseProjectReq {
   String discoveryGatewayPort;
   bool overWriteExistingFiles;
   String projectFolderPath;
-  String projectName;
 
   factory BaseProjectReq.fromRawJson(String str) =>
       BaseProjectReq.fromJson(json.decode(str));
@@ -32,7 +30,6 @@ class BaseProjectReq {
         discoveryGatewayPort: json["discoveryGatewayPort"],
         overWriteExistingFiles: json["overWriteExistingFiles"],
         projectFolderPath: json["projectFolderPath"],
-        projectName: json["projectName"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -41,6 +38,5 @@ class BaseProjectReq {
         "discoveryGatewayPort": discoveryGatewayPort,
         "overWriteExistingFiles": overWriteExistingFiles,
         "projectFolderPath": projectFolderPath,
-        "projectName": projectName,
       };
 }

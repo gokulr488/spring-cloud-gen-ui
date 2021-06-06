@@ -21,7 +21,7 @@ class CheckBoxWidget extends StatelessWidget {
         Checkbox(
             activeColor: kHighlightColour,
             value: initialValue,
-            onChanged: onChanged(bool))
+            onChanged: (value) => onChanged(value))
       ]),
     );
   }

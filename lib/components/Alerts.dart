@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:springcloudgenui/commons/UiConstants.dart';
 import 'package:springcloudgenui/components/LoadingDots.dart';
 
@@ -20,6 +21,17 @@ class Alerts extends StatelessWidget {
         shape: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.0))));
   }
+}
+
+void showSilentAlerts(String message) {
+  Fluttertoast.showToast(
+      msg: message,
+      toastLength: Toast.LENGTH_LONG,
+      gravity: ToastGravity.CENTER,
+      timeInSecForIosWeb: 2,
+      backgroundColor: Colors.red,
+      textColor: Colors.white,
+      fontSize: 16.0);
 }
 
 void showSendingDialogue(BuildContext context) {

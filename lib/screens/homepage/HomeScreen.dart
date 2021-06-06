@@ -66,10 +66,13 @@ class _Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(
-          Icons.warning_amber_outlined,
-          size: 50,
-          color: Colors.green,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Icon(
+            Icons.warning_amber_outlined,
+            size: 50,
+            color: Colors.green,
+          ),
         ),
         Text('spring ',
             style: TextStyle(

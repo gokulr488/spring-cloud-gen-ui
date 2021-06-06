@@ -22,7 +22,7 @@ class DropDown extends StatelessWidget {
       iconSize: 25,
       decoration: kTextFieldDecoration.copyWith(labelText: hintText),
       value: defaultValue,
-      onChanged: onChanged(),
+      onChanged: (value) => onChanged(value),
       items: values
           .map((value) => DropdownMenuItem(value: value, child: Text(value)))
           .toList(),
