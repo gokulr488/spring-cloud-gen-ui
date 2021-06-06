@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:springcloudgenui/apis/Apis.dart';
+import 'package:springcloudgenui/apis/BaseProjectReq.dart';
 import 'package:springcloudgenui/commons/UiConstants.dart';
 import 'package:springcloudgenui/components/CheckBoxWidget.dart';
 import 'package:springcloudgenui/components/FormFieldWidget.dart';
@@ -92,7 +94,9 @@ class _BaseProjectFormState extends State<BaseProjectForm> {
                 ),
                 Spacer(),
                 RoundedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    onGeneratePressed();
+                  },
                   width: 150,
                   title: 'Generate',
                   colour: kHighlightColour,
@@ -103,5 +107,17 @@ class _BaseProjectFormState extends State<BaseProjectForm> {
         ],
       ),
     );
+  }
+
+  onGeneratePressed() async {
+    debugPrint('Generating Base Project');
+    BaseProjectReq req = BaseProjectReq(
+      basePackageName: packageCtrl.text,
+      configServerPort: configPortCtrl.text,
+      discoveryGatewayPort: discoveryPortCtrl.text,
+      projectFolderPath: folderCtrl.text,
+      projectName: projectNameCtrl.text,
+    );
+    Apis().generateBaseProject(req);
   }
 }
