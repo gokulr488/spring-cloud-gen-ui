@@ -9,23 +9,25 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseScreen(
-      child: Column(
-        children: [
-          _Header(),
-          Text('Base Project',
-              style: TextStyle(
-                  fontSize: 23,
-                  color: Colors.green,
-                  fontWeight: FontWeight.bold)),
-          HorLine(),
-          BaseProjectForm(),
-          Text('Child Projects',
-              style: TextStyle(
-                  fontSize: 23,
-                  color: Colors.green,
-                  fontWeight: FontWeight.bold)),
-          HorLine(),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            _Header(),
+            Text('Base Project',
+                style: TextStyle(
+                    fontSize: 23,
+                    color: Colors.green,
+                    fontWeight: FontWeight.bold)),
+            HorLine(),
+            BaseProjectForm(),
+            Text('Child Projects',
+                style: TextStyle(
+                    fontSize: 23,
+                    color: Colors.green,
+                    fontWeight: FontWeight.bold)),
+            HorLine(),
+          ],
+        ),
       ),
     );
   }

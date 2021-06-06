@@ -2,15 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:springcloudgenui/components/CheckBoxWidget.dart';
 import 'package:springcloudgenui/components/FormFieldWidget.dart';
 
-class BaseProjectForm extends StatelessWidget {
+class BaseProjectForm extends StatefulWidget {
+  @override
+  _BaseProjectFormState createState() => _BaseProjectFormState();
+}
+
+class _BaseProjectFormState extends State<BaseProjectForm> {
   final TextEditingController packageCtrl =
       TextEditingController(text: 'com.example.springcloudproject');
+
   final TextEditingController configPortCtrl =
       TextEditingController(text: '9001');
+
   final TextEditingController discoveryPortCtrl =
       TextEditingController(text: '9002');
+
   final TextEditingController folderCtrl =
       TextEditingController(text: 'eg: C:\\Users\\username\\eclipse-workspace');
+
   final TextEditingController projectNameCtrl =
       TextEditingController(text: 'SpringCloudProject');
 
@@ -57,7 +66,15 @@ class BaseProjectForm extends StatelessWidget {
                         fontWeight: FontWeight.bold)),
                 CheckBoxWidget(
                   fieldName: 'Spring Data',
-                  onChanged: () {},
+                  onChanged: (value) {
+                    //setState(() {});
+                  },
+                ),
+                CheckBoxWidget(
+                  fieldName: 'Spring Batch',
+                  onChanged: (value) {
+                    //setState(() {});
+                  },
                 ),
               ],
             ),
