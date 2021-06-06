@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 const Color kBackgroundColor = Color(0xFF121212);
 const Color kHighlightColour = Colors.green;
-const Color kRedColor = Color(0xFF7f0000);
+const Color kRedColor = Color(0xFFEF5350);
 const Color kBlueColor = Color(0xFF0d47a1);
 const Color kAlertColor = Color(0x801b1b1b);
 const Color kWhite25 = Color(0x40FFFFFF);

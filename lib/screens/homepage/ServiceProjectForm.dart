@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:springcloudgenui/commons/UiConstants.dart';
 import 'package:springcloudgenui/components/CheckBoxWidget.dart';
 import 'package:springcloudgenui/components/FormFieldWidget.dart';
+import 'package:springcloudgenui/components/RoundedButton.dart';
 
 class ServiceProjectForm extends StatefulWidget {
   @override
@@ -20,7 +22,7 @@ class _ServiceProjectFormState extends State<ServiceProjectForm> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 200,
+      height: 250,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -70,6 +72,13 @@ class _ServiceProjectFormState extends State<ServiceProjectForm> {
                     //setState(() {});
                   },
                 ),
+                Spacer(),
+                RoundedButton(
+                  onPressed: () {},
+                  width: 150,
+                  title: 'Generate',
+                  colour: kHighlightColour,
+                )
               ],
             ),
           ),

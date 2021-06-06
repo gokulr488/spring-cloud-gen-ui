@@ -5,9 +5,15 @@ import 'package:springcloudgenui/components/HorLine.dart';
 import 'package:springcloudgenui/screens/homepage/BaseProjectForm.dart';
 import 'package:springcloudgenui/screens/homepage/ServiceProjectForm.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static const String id = 'HomeScreen';
 
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final List<Widget> serviceProjects = [ServiceProjectForm(), HorLine()];
   @override
   Widget build(BuildContext context) {
     return BaseScreen(
@@ -22,32 +28,35 @@ class HomeScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold)),
             HorLine(),
             BaseProjectForm(),
-            Text('Child Projects',
-                style: TextStyle(
-                    fontSize: 23,
-                    color: Colors.green,
-                    fontWeight: FontWeight.bold)),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text('Micro Services',
+                      style: TextStyle(
+                          fontSize: 23,
+                          color: kHighlightColour,
+                          fontWeight: FontWeight.bold)),
+                  IconButton(
+                      onPressed: () {
+                        serviceProjects.add(ServiceProjectForm());
+                        serviceProjects.add(HorLine());
+                        setState(() {});
+                      },
+                      icon: Icon(
+                        Icons.add,
+                        size: 50,
+                        color: kRedColor,
+                      ))
+                ],
+              ),
+            ),
             HorLine(),
-            _ServiceProjects(),
+            Column(children: serviceProjects),
           ],
         ),
       ),
-    );
-  }
-}
-
-class _ServiceProjects extends StatefulWidget {
-  @override
-  __ServiceProjectsState createState() => __ServiceProjectsState();
-}
-
-class __ServiceProjectsState extends State<_ServiceProjects> {
-  final List<Widget> serviceProjects = [ServiceProjectForm(), HorLine()];
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: serviceProjects,
     );
   }
 }

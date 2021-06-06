@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:springcloudgenui/commons/UiConstants.dart';
 import 'package:springcloudgenui/components/CheckBoxWidget.dart';
 import 'package:springcloudgenui/components/FormFieldWidget.dart';
+import 'package:springcloudgenui/components/RoundedButton.dart';
 
 class BaseProjectForm extends StatefulWidget {
   @override
@@ -18,7 +20,7 @@ class _BaseProjectFormState extends State<BaseProjectForm> {
       TextEditingController(text: '9002');
 
   final TextEditingController folderCtrl =
-      TextEditingController(text: 'eg: C:\\Users\\username\\eclipse-workspace');
+      TextEditingController(text: 'C:\\Users\\username\\eclipse-workspace');
 
   final TextEditingController projectNameCtrl =
       TextEditingController(text: 'SpringCloudProject');
@@ -88,6 +90,13 @@ class _BaseProjectFormState extends State<BaseProjectForm> {
                     //setState(() {});
                   },
                 ),
+                Spacer(),
+                RoundedButton(
+                  onPressed: () {},
+                  width: 150,
+                  title: 'Generate',
+                  colour: kHighlightColour,
+                )
               ],
             ),
           ),

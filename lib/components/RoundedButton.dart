@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:springcloudgenui/commons/UiConstants.dart';
 
 class RoundedButton extends StatelessWidget {
   RoundedButton(
@@ -29,6 +30,9 @@ class RoundedButton extends StatelessWidget {
                 child: child != null
                     ? child
                     : Text(title ?? '',
-                        style: TextStyle(color: Colors.white, fontSize: 16)))));
+                        style: TextStyle(
+                            color: kWhite80,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold)))));
   }
 }
