@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:springcloudgenui/apis/Apis.dart';
 import 'package:springcloudgenui/apis/BaseProjectReq.dart';
 import 'package:springcloudgenui/apis/CallContext.dart';
+import 'package:springcloudgenui/commons/AppData.dart';
 import 'package:springcloudgenui/commons/UiConstants.dart';
 import 'package:springcloudgenui/components/Alerts.dart';
 import 'package:springcloudgenui/components/CheckBoxWidget.dart';
@@ -14,18 +15,10 @@ class BaseProjectForm extends StatefulWidget {
 }
 
 class _BaseProjectFormState extends State<BaseProjectForm> {
-  final TextEditingController packageCtrl =
-      TextEditingController(text: 'com.example.springcloudproject');
-
-  final TextEditingController configPortCtrl =
-      TextEditingController(text: '9001');
-
-  final TextEditingController discoveryPortCtrl =
-      TextEditingController(text: '9002');
-
-  final TextEditingController folderCtrl =
-      TextEditingController(text: 'C:\\Users\\username\\eclipse-workspace');
-
+  bool overWriteEnabled = false;
+  bool springDataEnabled = false;
+  bool springBatchEnabled = false;
+  bool swaggerEnabled = false;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -54,8 +47,10 @@ class _BaseProjectFormState extends State<BaseProjectForm> {
                 ),
                 CheckBoxWidget(
                   fieldName: 'Overwrite Existing Files ?',
+                  initialValue: overWriteEnabled,
                   onChanged: (value) {
-                    //setState(() {});
+                    overWriteEnabled = value;
+                    setState(() {});
                   },
                 ),
               ],
@@ -71,20 +66,26 @@ class _BaseProjectFormState extends State<BaseProjectForm> {
                         fontWeight: FontWeight.bold)),
                 CheckBoxWidget(
                   fieldName: 'Spring Data',
+                  initialValue: springDataEnabled,
                   onChanged: (value) {
-                    //setState(() {});
+                    springDataEnabled = value;
+                    setState(() {});
                   },
                 ),
                 CheckBoxWidget(
                   fieldName: 'Spring Batch',
+                  initialValue: springBatchEnabled,
                   onChanged: (value) {
-                    //setState(() {});
+                    springBatchEnabled = value;
+                    setState(() {});
                   },
                 ),
                 CheckBoxWidget(
                   fieldName: 'Swagger Documentation',
+                  initialValue: swaggerEnabled,
                   onChanged: (value) {
-                    //setState(() {});
+                    swaggerEnabled = value;
+                    setState(() {});
                   },
                 ),
                 Spacer(),
@@ -108,7 +109,8 @@ class _BaseProjectFormState extends State<BaseProjectForm> {
         basePackageName: packageCtrl.text,
         configServerPort: configPortCtrl.text,
         discoveryGatewayPort: discoveryPortCtrl.text,
-        projectFolderPath: folderCtrl.text);
+        projectFolderPath: folderCtrl.text,
+        overWriteExistingFiles: overWriteEnabled);
     CallContext callContext = await Apis().generateBaseProject(req);
     if (callContext.isError) {
       showErrorAlert(context, 'Unable to Generate');

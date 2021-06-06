@@ -29,7 +29,7 @@ class Apis {
 
   Future<CallContext> generateServiceProject(ServiceProjectReq req) async {
     String url = baseUrl + '/generate/serviceProject';
-    print('Service Project Req: $url');
+    print('Service Project URL: $url BODY: ${req.toRawJson()}');
     Uri uri = Uri.parse(url);
     try {
       final res = await http.post(uri, headers: header, body: req.toRawJson());
