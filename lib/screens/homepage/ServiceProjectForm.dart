@@ -2,31 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:springcloudgenui/components/CheckBoxWidget.dart';
 import 'package:springcloudgenui/components/FormFieldWidget.dart';
 
-class BaseProjectForm extends StatefulWidget {
+class ServiceProjectForm extends StatefulWidget {
   @override
-  _BaseProjectFormState createState() => _BaseProjectFormState();
+  _ServiceProjectFormState createState() => _ServiceProjectFormState();
 }
 
-class _BaseProjectFormState extends State<BaseProjectForm> {
-  final TextEditingController packageCtrl =
-      TextEditingController(text: 'com.example.springcloudproject');
+class _ServiceProjectFormState extends State<ServiceProjectForm> {
+//   {
+//   "overWriteExistingFiles": true,
+//   "serviceName": "string",
+//   "servicePort": "string"
+// }
+  final TextEditingController serviceNameCtrl =
+      TextEditingController(text: 'MicroServiceName');
 
-  final TextEditingController configPortCtrl =
-      TextEditingController(text: '9001');
-
-  final TextEditingController discoveryPortCtrl =
-      TextEditingController(text: '9002');
-
-  final TextEditingController folderCtrl =
-      TextEditingController(text: 'eg: C:\\Users\\username\\eclipse-workspace');
-
-  final TextEditingController projectNameCtrl =
-      TextEditingController(text: 'SpringCloudProject');
-
+  final TextEditingController servicePort = TextEditingController(text: '9003');
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 400,
+      height: 350,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -34,24 +28,12 @@ class _BaseProjectFormState extends State<BaseProjectForm> {
             child: Column(
               children: [
                 FormFieldWidget(
-                  fieldName: 'Project Name',
-                  controller: projectNameCtrl,
+                  fieldName: 'Micro-Service Name',
+                  controller: serviceNameCtrl,
                 ),
                 FormFieldWidget(
-                  fieldName: 'Package Name',
-                  controller: packageCtrl,
-                ),
-                FormFieldWidget(
-                  fieldName: 'Project Root Folder',
-                  controller: folderCtrl,
-                ),
-                FormFieldWidget(
-                  fieldName: 'Config Server Port',
-                  controller: configPortCtrl,
-                ),
-                FormFieldWidget(
-                  fieldName: 'Discovery Gateway Port',
-                  controller: discoveryPortCtrl,
+                  fieldName: 'Service Port',
+                  controller: servicePort,
                 ),
                 CheckBoxWidget(
                   fieldName: 'Overwrite Existing Files ?',
@@ -65,7 +47,7 @@ class _BaseProjectFormState extends State<BaseProjectForm> {
           Expanded(
             child: Column(
               children: [
-                Text('Global Dependencies',
+                Text('Dependencies',
                     style: TextStyle(
                         fontSize: 18,
                         color: Colors.green,

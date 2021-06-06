@@ -3,9 +3,11 @@ import 'package:springcloudgenui/commons/UiConstants.dart';
 import 'package:springcloudgenui/components/BaseScreen.dart';
 import 'package:springcloudgenui/components/HorLine.dart';
 import 'package:springcloudgenui/screens/homepage/BaseProjectForm.dart';
+import 'package:springcloudgenui/screens/homepage/ServiceProjectForm.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String id = 'HomeScreen';
+
   @override
   Widget build(BuildContext context) {
     return BaseScreen(
@@ -26,9 +28,26 @@ class HomeScreen extends StatelessWidget {
                     color: Colors.green,
                     fontWeight: FontWeight.bold)),
             HorLine(),
+            _ServiceProjects(),
           ],
         ),
       ),
+    );
+  }
+}
+
+class _ServiceProjects extends StatefulWidget {
+  @override
+  __ServiceProjectsState createState() => __ServiceProjectsState();
+}
+
+class __ServiceProjectsState extends State<_ServiceProjects> {
+  final List<ServiceProjectForm> serviceProjects = [ServiceProjectForm()];
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: serviceProjects,
     );
   }
 }

@@ -15,9 +15,7 @@ class FormFieldWidget extends StatelessWidget {
         children: [
           Text(fieldName,
               style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.green)),
+                  fontSize: 16, fontWeight: FontWeight.bold, color: kWhite80)),
           SizedBox(
             width: 400,
             height: 45,

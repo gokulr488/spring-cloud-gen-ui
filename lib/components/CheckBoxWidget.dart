@@ -13,13 +13,11 @@ class CheckBoxWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Text(fieldName,
             style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-                color: kHighlightColour)),
+                fontWeight: FontWeight.bold, fontSize: 16, color: kWhite80)),
         Checkbox(
             activeColor: kHighlightColour,
             value: initialValue,
