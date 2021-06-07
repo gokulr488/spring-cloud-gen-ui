@@ -30,6 +30,10 @@ class _BaseProjectFormState extends State<BaseProjectForm> {
             child: Column(
               children: [
                 FormFieldWidget(
+                  fieldName: 'Project Name',
+                  controller: projectNameCtrl,
+                ),
+                FormFieldWidget(
                   fieldName: 'Package Name',
                   controller: packageCtrl,
                 ),
@@ -106,6 +110,7 @@ class _BaseProjectFormState extends State<BaseProjectForm> {
   void onGeneratePressed() async {
     debugPrint('Generating Base Project');
     BaseProjectReq req = BaseProjectReq(
+        rootProjectName: projectNameCtrl.text,
         basePackageName: packageCtrl.text,
         configServerPort: configPortCtrl.text,
         discoveryGatewayPort: discoveryPortCtrl.text,

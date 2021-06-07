@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+final TextEditingController projectNameCtrl =
+    TextEditingController(text: 'baseprojectname');
+
 final TextEditingController packageCtrl =
     TextEditingController(text: 'com.example.springcloudproject');
 

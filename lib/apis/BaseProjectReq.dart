@@ -6,13 +6,14 @@ import 'dart:convert';
 
 class BaseProjectReq {
   BaseProjectReq({
+    required this.rootProjectName,
     required this.basePackageName,
     required this.configServerPort,
     required this.discoveryGatewayPort,
     this.overWriteExistingFiles = false,
     required this.projectFolderPath,
   });
-
+  String rootProjectName;
   late String basePackageName;
   String configServerPort;
   String discoveryGatewayPort;
@@ -25,12 +26,12 @@ class BaseProjectReq {
   String toRawJson() => json.encode(toJson());
 
   factory BaseProjectReq.fromJson(Map<String, dynamic> json) => BaseProjectReq(
-        basePackageName: json["basePackageName"],
-        configServerPort: json["configServerPort"],
-        discoveryGatewayPort: json["discoveryGatewayPort"],
-        overWriteExistingFiles: json["overWriteExistingFiles"],
-        projectFolderPath: json["projectFolderPath"],
-      );
+      basePackageName: json["basePackageName"],
+      configServerPort: json["configServerPort"],
+      discoveryGatewayPort: json["discoveryGatewayPort"],
+      overWriteExistingFiles: json["overWriteExistingFiles"],
+      projectFolderPath: json["projectFolderPath"],
+      rootProjectName: json['rootProjectName']);
 
   Map<String, dynamic> toJson() => {
         "basePackageName": basePackageName,
@@ -38,5 +39,6 @@ class BaseProjectReq {
         "discoveryGatewayPort": discoveryGatewayPort,
         "overWriteExistingFiles": overWriteExistingFiles,
         "projectFolderPath": projectFolderPath,
+        "rootProjectName": rootProjectName,
       };
 }
